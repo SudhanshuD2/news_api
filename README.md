@@ -6,10 +6,9 @@ uses News API for fetching and displaying prefferred domain News.
 
 ## 🖼️ Screenshots
 ### 🔹 Home Screen
-![Home Screen]()
+![Home Screen](https://github.com/SudhanshuD2/news_api/blob/main/images/Screenshot%202025-02-07%20084928.png)
 
-### 🔹 News List
-![News List](path/to/news_list.png)
+![Home Screen screenShot](images/Screenshot_1738898355.png)
 
 ### 🔹 Article Details
-![Article Details](path/to/article_details.png)
+![Article Details](images/Screenshot_1738901014.png)
