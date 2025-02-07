@@ -1,3 +1,4 @@
 # news_api
 
-A new Flutter project.
+Attento Technologies Assignment Application 
+uses News API for fetching and displaying prefferred domain News.
