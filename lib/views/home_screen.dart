@@ -17,6 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final NewsService _newsServices  =NewsService();
   List<Article> articles = [];
+  bool isLoading = false;
 
   @override
   void initState(){
@@ -26,8 +27,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<void> _loadNews() async{
     try{
+      isLoading = true;
       final news = await _newsServices.getNews();
-      setState(()=> articles=news);
+      isLoading = false;
+      setState((){
+        articles=news;
+      });
     }catch(e){
       log('$e');
     }
@@ -50,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         centerTitle: true,
       ),
-      body: ListView.builder(
+      body:isLoading ? CircularProgressIndicator() : ListView.builder(
         itemCount: 10,
         itemBuilder: (context, index){
           return GestureDetector(
@@ -128,7 +133,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(15)
                     ),
                     child: articles[index].urlToImage.isNotEmpty ? 
-                      Image.network(articles[index].urlToImage, fit: BoxFit.cover) : 
+                      Image.network(
+                        articles[index].urlToImage,
+                        fit: BoxFit.cover
+                      ) : 
+                      
                       Icon(Icons.image_not_supported, size: 65,
                       color: Color.fromRGBO(0,0,0,0.5),
                     ),

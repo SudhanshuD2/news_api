@@ -24,7 +24,7 @@ class Article {
     String formatContent(String? rawContent) {
       if (rawContent == null || rawContent.isEmpty) return '';
       
-      String formatted = rawContent.replaceAll(RegExp(r'\[\+\d+ chars\]'), 'more');
+      String formatted = rawContent.replaceAll(RegExp(r'\[\+/d+ chars\]'), 'more');
       
       formatted = formatted
           .replaceAll('&amp;', '&')
